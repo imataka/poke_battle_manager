@@ -1,0 +1,13 @@
+current directory: /Users/Ryo/workspace/Ruby/poke/poke_battle_manager/vendor/bundle/gems/json-1.8.6/ext/json
+/Users/Ryo/.rbenv/versions/2.3.1/bin/ruby -r ./siteconf20170430-45906-b5kat9.rb extconf.rb
+creating Makefile
+
+current directory: /Users/Ryo/workspace/Ruby/poke/poke_battle_manager/vendor/bundle/gems/json-1.8.6/ext/json
+make "DESTDIR=" clean
+
+current directory: /Users/Ryo/workspace/Ruby/poke/poke_battle_manager/vendor/bundle/gems/json-1.8.6/ext/json
+make "DESTDIR="
+make: Nothing to be done for `all'.
+
+current directory: /Users/Ryo/workspace/Ruby/poke/poke_battle_manager/vendor/bundle/gems/json-1.8.6/ext/json
+make "DESTDIR=" install
