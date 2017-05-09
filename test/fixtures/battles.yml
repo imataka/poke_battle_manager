@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  my_id: 
+  opp_id: 
+  my_rate: 
+  opp_rate: 
+  result: false
+
+two:
+  my_id: 
+  opp_id: 
+  my_rate: 
+  opp_rate: 
+  result: false
