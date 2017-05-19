@@ -27,3 +27,6 @@ doc/
 .idea
 .secret
 /tmp
+
+# exclude files for copyrights
+mockup/fig/*
