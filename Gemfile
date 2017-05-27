@@ -49,3 +49,6 @@ group :development do
   gem 'spring'
 end
 
+### add by ry_2718
+# bootstrap
+gem 'bootstrap_form'

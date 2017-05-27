@@ -1,2 +1,8 @@
-<h1>Battles#new</h1>
-<p>Find me in app/views/battles/new.html.erb</p>
+<%= bootstrap_form_for(@battle, layout: :inline) do |b| %>
+  <%= b.my_rate :my_rate %>
+  <%= b.opp_rate :opp_rate %>
+  <%= b.result :result %>
+<% end %>
+
+<h2>選出</h2>
+
