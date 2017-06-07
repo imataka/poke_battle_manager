@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  battle_id: 
+  opp_poke_id: 
+
+two:
+  battle_id: 
+  opp_poke_id: 

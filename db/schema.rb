@@ -11,7 +11,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170509064733) do
+ActiveRecord::Schema.define(version: 20170607055958) do
+
+  create_table "battle_my_pokes", force: :cascade do |t|
+    t.integer  "battle_id"
+    t.integer  "my_poke_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "battle_my_pokes", ["battle_id"], name: "index_battle_my_pokes_on_battle_id"
+  add_index "battle_my_pokes", ["my_poke_id"], name: "index_battle_my_pokes_on_my_poke_id"
+
+  create_table "battle_opp_pokes", force: :cascade do |t|
+    t.integer  "battle_id"
+    t.integer  "opp_poke_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "battle_opp_pokes", ["battle_id"], name: "index_battle_opp_pokes_on_battle_id"
+  add_index "battle_opp_pokes", ["opp_poke_id"], name: "index_battle_opp_pokes_on_opp_poke_id"
 
   create_table "battles", force: :cascade do |t|
     t.integer  "my_id"
