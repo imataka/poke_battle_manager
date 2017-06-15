@@ -1,4 +1,12 @@
 Rails.application.routes.draw do
+  get 'evals/index'
+
+  get 'evals/new'
+
+  get 'evals/show'
+
+  get 'evals/edit'
+
   get 'battles/index'
 
   get 'battles/new'
