@@ -11,32 +11,6 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170509064733) do
-
-  create_table "battles", force: :cascade do |t|
-    t.integer  "my_id"
-    t.integer  "opp_id"
-    t.integer  "my_rate"
-    t.integer  "opp_rate"
-    t.boolean  "result"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "my_pokes", force: :cascade do |t|
-    t.string   "name"
-    t.string   "item"
-    t.string   "ability"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "opp_pokes", force: :cascade do |t|
-    t.string   "name"
-    t.string   "item"
-    t.string   "ability"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
+ActiveRecord::Schema.define(version: 0) do
 
 end
