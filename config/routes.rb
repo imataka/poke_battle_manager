@@ -1,35 +1,7 @@
 Rails.application.routes.draw do
-  get 'evals/index'
+root 'battles#index'
+  resources :battles
 
-  get 'evals/new'
-
-  get 'evals/show'
-
-  get 'evals/edit'
-
-  get 'battles/index'
-
-  get 'battles/new'
-
-  get 'battles/show'
-
-  get 'battles/edit'
-
-  get 'parties/index'
-
-  get 'parties/new'
-
-  get 'parties/show'
-
-  get 'parties/edit'
-
-  get 'stats/index'
-
-  get 'stats/new'
-
-  get 'stats/show'
-
-  get 'stats/edit'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

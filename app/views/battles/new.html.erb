@@ -1,8 +1,20 @@
 <%= bootstrap_form_for(@battle, layout: :inline) do |b| %>
-  <%= b.my_rate :my_rate %>
-  <%= b.opp_rate :opp_rate %>
-  <%= b.result :result %>
-<% end %>
+<%= b.my_rate :my_rate %>
+<%= b.opp_rate :opp_rate %>
+<%= b.result :result %>
 
+
+<% end %>
+<div>
+<%= form_for @battle do |f| %>
+  <%= f.text_field :rate, placeholder: 'グループ名を入力してください', cols: '30', rows: '10', autofocus: 'true', class: 'form-control' %>
+  <%= f.text_area :description, placehoder: 'aaaaaa', autofocus: 'true', class: 'form-control' %>
+  <%= f.file_field :logo %>
+  <%= f.fields_for :opp_poke do |m| %>
+  <%= m.text_field :name %>
+  <%= m.text_field :item %>
+  <%= f.submit '作成する', class: 'btn btn-primary' %>
+  <% end %>
+</div>
 <h2>選出</h2>
 
