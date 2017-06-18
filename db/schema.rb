@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170618061602) do
+ActiveRecord::Schema.define(version: 20170618062822) do
 
   create_table "battle_my_pokes", force: :cascade do |t|
     t.integer  "battle_id",  limit: 4
@@ -50,14 +50,14 @@ ActiveRecord::Schema.define(version: 20170618061602) do
   create_table "evals", force: :cascade do |t|
     t.integer  "eval",        limit: 4
     t.integer  "battle_id",   limit: 4
-    t.string   "my_poke",     limit: 255
-    t.string   "references",  limit: 255
+    t.integer  "my_poke_id",  limit: 4
     t.integer  "opp_poke_id", limit: 4
-    t.datetime "created_at",              null: false
-    t.datetime "updated_at",              null: false
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
   end
 
   add_index "evals", ["battle_id"], name: "index_evals_on_battle_id", using: :btree
+  add_index "evals", ["my_poke_id"], name: "index_evals_on_my_poke_id", using: :btree
   add_index "evals", ["opp_poke_id"], name: "index_evals_on_opp_poke_id", using: :btree
 
   create_table "my_pokes", force: :cascade do |t|
@@ -81,5 +81,6 @@ ActiveRecord::Schema.define(version: 20170618061602) do
   add_foreign_key "battle_opp_pokes", "battles"
   add_foreign_key "battle_opp_pokes", "opp_pokes"
   add_foreign_key "evals", "battles"
+  add_foreign_key "evals", "my_pokes"
   add_foreign_key "evals", "opp_pokes"
 end
