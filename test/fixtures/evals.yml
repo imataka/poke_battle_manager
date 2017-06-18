@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  eval: 1
+  battle_id: 
+  my_poke: MyString
+  references: MyString
+  opp_poke_id: 
+
+two:
+  eval: 1
+  battle_id: 
+  my_poke: MyString
+  references: MyString
+  opp_poke_id: 
