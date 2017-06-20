@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170618062822) do
+ActiveRecord::Schema.define(version: 20170620115755) do
 
   create_table "battle_my_pokes", force: :cascade do |t|
     t.integer  "battle_id",  limit: 4

@@ -1,0 +1,12 @@
+<div class="form-group">
+  <%= f.label :my_rate, "自分のレート", {class: "control-label"} %>
+  <%= f.text_field :my_rate, class: "form-control" %>
+</div>
+<div class="form-group">
+  <%= f.label :opp_rate, "相手のレート", {class: "control-label"} %>
+  <%= f.text_field :opp_rate, class: "form-control" %>
+</div>
+<div class="form-group">
+  <%= f.label :result, "勝敗", {class: "control-label"} %>
+  <%= f.select :result, [["勝ち", true], ["負け", false]], {}, class: "form-control" %>
+</div>

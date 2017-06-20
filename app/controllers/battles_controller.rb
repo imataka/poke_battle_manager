@@ -4,8 +4,11 @@ class BattlesController < ApplicationController
 
   def new
     @battle = Battle.new
-    @battle.opp_pokes.build
-    @battle.my_pokes.build
+    @my_pokes = MyPoke.party
+    3.times do
+      @battle.battle_my_pokes.build
+      @battle.opp_pokes.build
+    end
   end
 
   def show
@@ -13,10 +16,15 @@ class BattlesController < ApplicationController
 
   def create
     Battle.create(battle_params)
+    redirect_to action: 'index'
   end
 
-private
+  private
   def battle_params
-    params.require(:battle).permit(:my_rate, :opp_rate, opp_pokes_attributes: [:name, :item], my_pokes_attributes: [:name, :item])
+    params.require(:battle).permit(:my_rate, :opp_rate, :result, 
+                                   battle_my_pokes_attributes: [:battle_id, :my_poke_id],
+                                   opp_pokes_attributes: [:name, :item, :ability], 
+                                   battle_opp_pokes_attributes: [:battle_id, :opp_poke_id], 
+                                  )
   end
 end
