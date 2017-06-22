@@ -15,8 +15,10 @@ class BattlesController < ApplicationController
   end
 
   def create
-    Battle.create(battle_params)
-    redirect_to action: 'index'
+    battle = Battle.new(battle_params)
+    battle.save
+    session[:battle_id] = battle.id
+    redirect_to controller: :evals, action: :new
   end
 
   private
