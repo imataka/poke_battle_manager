@@ -8,4 +8,12 @@ class Battle < ActiveRecord::Base
   accepts_nested_attributes_for :battle_my_pokes, allow_destroy: true
   accepts_nested_attributes_for :battle_opp_pokes, allow_destroy: true
   accepts_nested_attributes_for :opp_pokes, allow_destroy: true
+
+  def result_ja
+    if result == true then
+      "勝ち"
+    else
+      "負け"
+    end
+  end
 end
