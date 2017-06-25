@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
-root 'battles#index'
+  root 'battles#index'
   resources :battles
+  resource :evals
 
 
   # The priority is based upon order of creation: first created -> highest priority.
