@@ -1,5 +1,17 @@
 <h1>Battles#index</h1>
+<p>
 <a href="/battles/new">
-バトルを記録する！
+  バトルを記録する！
 </a>
-<p>Find me in app/views/battles/index.html.erb</p>
+</p>
+
+<p>
+バトルを振り返る！
+<ul>
+  <% @battles.reverse_each do |battle| %>
+    <li>
+    <%= link_to battle_sum(battle), battle %>
+    </li>
+  <% end %>
+</ul>
+</p>

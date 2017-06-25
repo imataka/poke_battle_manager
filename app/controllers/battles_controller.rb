@@ -1,5 +1,6 @@
 class BattlesController < ApplicationController
   def index
+    @battles = Battle.all
   end
 
   def new
@@ -12,6 +13,9 @@ class BattlesController < ApplicationController
   end
 
   def show
+    @battle = Battle.find(params[:id])
+    @my_pokes = @battle.my_pokes
+    @opp_pokes = @battle.opp_pokes
   end
 
   def create
