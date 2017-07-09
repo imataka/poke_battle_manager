@@ -50,5 +50,3 @@ group :development do
 end
 
 ### add by ry_2718
-# bootstrap
-gem 'bootstrap_form'
