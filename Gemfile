@@ -50,3 +50,5 @@ group :development do
 end
 
 ### add by ry_2718
+gem 'active_hash'
+gem 'active_hash-like'
