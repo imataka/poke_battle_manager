@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   resources :battles
   resource :evals
   get 'stats/show' => 'stats#show'
+  get '/poke_name_autocomp' => 'pokes#name_autocomp'
 
 
   # The priority is based upon order of creation: first created -> highest priority.
