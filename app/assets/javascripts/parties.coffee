@@ -24,6 +24,8 @@ $ ->
 
     .on 'ajax:complete', '.delete_my_poke', (event, ajax, status) ->
       # 項目を削除
+      console.log("remove")
+      console.log($(this))
       $(this).closest('.my_poke').remove()
 
   $('#new_my_poke')
@@ -35,7 +37,10 @@ $ ->
       $('#my_pokes').append html
 
       # フォームを初期化
-      $(this)[0].reset()
+      console.log($(this))
+      $(this).find('.poke_ability')[0].value = ""
+      $(this).find('.poke_item')[0].value = ""
+      $(this).find('.poke_name')[0].value = ""
 
 # 表示モードと編集モードを切り替える。
 toggleEditor = ($container) ->

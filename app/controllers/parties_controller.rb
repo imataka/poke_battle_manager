@@ -1,9 +1,10 @@
 class PartiesController < ApplicationController
   def index
     @my_pokes = MyPoke.all
+    @new_my_poke = MyPoke.new
   end
 
-  def new
+  def create
   end
 
   def show
@@ -12,16 +13,36 @@ class PartiesController < ApplicationController
   def edit
   end
 
+  def create_poke
+    @my_poke = MyPoke.new(my_poke_params)
+
+    if @my_poke.save
+      status = 'succeess'
+      html = render_to_string partial: 'editor', locals: { my_poke: @my_poke }
+    else
+      status = 'error'
+    end
+
+    render json: { status: status, data: @my_poke, html: html }
+  end
+
   def update_poke
     @my_poke = MyPoke.find(params[:id])
 
-    if @my_poke.update_attributes(my_poke_params)
+    if @my_poke.update(my_poke_params)
       status = 'success'
     else
       status = 'error'
     end
 
     render json: { status: status, data: @my_poke }
+  end
+
+  def destroy_poke
+    @my_poke = MyPoke.find(params[:id])
+    @my_poke.destroy
+
+    render json: { status: 'success', data: @my_poke }
   end
 
   def my_poke_params

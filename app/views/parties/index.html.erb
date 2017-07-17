@@ -1,24 +1,18 @@
 <%= javascript_include_tag "parties" %>
 <div class="row">
-  <div class="col-xs-8" id="my_pokes">
-    ここでmy_pokeの表示・更新・削除・選択などをする
+  <div class="col-xs-8">
     <div class="row">
       <div class="col-xs-3"><h4>名前</h4></div>
       <div class="col-xs-3"><h4>持ち物</h4></div>
       <div class="col-xs-3"><h4>特性</h4></div>
       <div class="col-xs-3"></div>
     </div>
-    <% @my_pokes.each do |my_poke| %>
-      <div class="my_poke">
+    <div id="my_pokes">
+      <% @my_pokes.each do |my_poke| %>
         <%= render "editor", my_poke: my_poke %>
-      </div>
-    <% end %>
-    <div class="row">
-      <div class="col-xs-3">hoge</div>
-      <div class="col-xs-3">hehe</div>
-      <div class="col-xs-3">haha</div>
-      <div class="col-xs-3">haha</div>
+      <% end %>
     </div>
+    <%= render "new", my_poke: @new_my_poke %>
   </div>
 
   <div class="col-xs-4">
