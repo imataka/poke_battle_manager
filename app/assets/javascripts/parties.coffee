@@ -9,18 +9,15 @@ $ ->
 
     .on 'ajax:complete', '.edit_my_poke', (event, ajax, status) ->
       response = $.parseJSON(ajax.responseText)
-      name = response.data.name
-      item = response.data.item
-      ability = response.data.ability
-      console.log(name)
-      console.log(item)
-      console.log(ability)
+      poke_name = response.data.name
+      poke_item = response.data.item
+      poke_ability = response.data.ability
       $container = $(this).closest('.my_poke')
 
       # 表示されてる値を更新
-      $container.find('.viewer .name').text name
-      $container.find('.viewer .item').text item
-      $container.find('.viewer .ability').text ability
+      $container.find('.viewer .poke_name').text poke_name
+      $container.find('.viewer .poke_item').text poke_item
+      $container.find('.viewer .poke_ability').text poke_ability
 
       # 表示を戻す
       toggleEditor $container
