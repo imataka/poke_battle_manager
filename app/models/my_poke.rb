@@ -6,6 +6,6 @@ class MyPoke < ActiveRecord::Base
   # パーティから外れているポケモンも管理するとき用に
   # パーティに入っているかを管理するフラグを用意してtrueなポケモンのみ返す
   def self.party
-    self.all
+    self.where(in_party: true)
   end
 end
