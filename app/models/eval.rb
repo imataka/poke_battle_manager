@@ -5,7 +5,12 @@ class Eval < ActiveRecord::Base
 
   class << self
     def average_for_poke(my_poke_id, opp_poke_ids, ndigits)
-      self.where(my_poke_id: my_poke_id, opp_poke_id: opp_poke_ids).average(:eval).round(ndigits).to_f
+      average = self.where(my_poke_id: my_poke_id, opp_poke_id: opp_poke_ids).average(:eval)
+      if average.nil? then
+        "no match yet"
+      else
+        average.round(ndigits).to_f
+      end
     end
   end
 end
