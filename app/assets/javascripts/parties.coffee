@@ -13,11 +13,13 @@ $ ->
       poke_item = response.data.item
       poke_ability = response.data.ability
       $container = $(this).closest('.my_poke')
+      $id = parseInt($container[0].id, 10)
 
       # 表示されてる値を更新
       $container.find('.viewer .poke_name').text poke_name
       $container.find('.viewer .poke_item').text poke_item
       $container.find('.viewer .poke_ability').text poke_ability
+      $('#choice').find('#' + $id + "_choice label")[0].firstChild.data = poke_name
 
       # 表示を戻す
       toggleEditor $container
