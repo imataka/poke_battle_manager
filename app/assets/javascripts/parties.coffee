@@ -24,23 +24,24 @@ $ ->
 
     .on 'ajax:complete', '.delete_my_poke', (event, ajax, status) ->
       # 項目を削除
-      console.log("remove")
-      console.log($(this))
+      $id = parseInt($(this).closest('.my_poke')[0].id, 10)
       $(this).closest('.my_poke').remove()
+      $('#choice').find("#" + $id + "_choice").remove()
 
   $('#new_my_poke')
     .on 'ajax:complete', (event, ajax, status) ->
       response = $.parseJSON(ajax.responseText)
-      html = response.html
+      editor_html = response.editor_html
+      choice_html = response.choice_html
  
       # 画面に追加
-      $('#my_pokes').append html
+      $('#my_pokes').append editor_html
+      $('#choice').append choice_html
 
       # フォームを初期化
-      console.log($(this))
       $(this).find('.poke_ability')[0].value = ""
       $(this).find('.poke_item')[0].value = ""
-      $(this).find('.poke_name')[0].value = ""
+      $(this).find('.poke_name')[1].value = ""
 
 # 表示モードと編集モードを切り替える。
 toggleEditor = ($container) ->

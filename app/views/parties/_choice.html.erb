@@ -1,0 +1,10 @@
+<div class="row row-eq-height col-xs-12" id="<%= my_poke.id %>_choice">
+  <%= fields_for "my_pokes[]", my_poke do |ff| %>
+    <div class="col-xs-12 middle">
+      <div class="checkbox party_checkbox">
+        <%= ff.check_box 'in_party', {}, checked_value = "true", unchecked_value = "false" %>
+        <%= my_poke.name %>
+      </div>
+    </div>
+  <% end %>
+</div>

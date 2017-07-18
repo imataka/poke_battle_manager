@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   post 'parties/update_poke/:id' => 'parties#update_poke'
   patch 'parties/update_poke/:id' => 'parties#update_poke'
   delete 'parties/destroy_poke/:id' => 'parties#destroy_poke'
+  patch 'parties/' => 'parties#update'
 
 
   # The priority is based upon order of creation: first created -> highest priority.

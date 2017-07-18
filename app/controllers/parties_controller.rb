@@ -10,6 +10,9 @@ class PartiesController < ApplicationController
   def show
   end
 
+  def update
+  end
+
   def edit
   end
 
@@ -18,12 +21,13 @@ class PartiesController < ApplicationController
 
     if @my_poke.save
       status = 'succeess'
-      html = render_to_string partial: 'editor', locals: { my_poke: @my_poke }
+      editor_html = render_to_string partial: 'editor', locals: { my_poke: @my_poke }
+      choice_html = render_to_string partial: 'choice', locals: { my_poke: @my_poke }
     else
       status = 'error'
     end
 
-    render json: { status: status, data: @my_poke, html: html }
+    render json: { status: status, data: @my_poke, editor_html: editor_html, choice_html: choice_html }
   end
 
   def update_poke
