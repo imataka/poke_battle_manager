@@ -9,6 +9,8 @@ class Battle < ActiveRecord::Base
   accepts_nested_attributes_for :battle_opp_pokes, allow_destroy: true
   accepts_nested_attributes_for :opp_pokes, allow_destroy: true
 
+  validates :my_rate, presence: true
+  validates :opp_rate, presence: true
   # helperでやったほうがいいのかもしれない
   def result_ja
     if result == true then
