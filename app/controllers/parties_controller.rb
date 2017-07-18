@@ -4,12 +4,6 @@ class PartiesController < ApplicationController
     @new_my_poke = MyPoke.new
   end
 
-  def create
-  end
-
-  def show
-  end
-
   def update
     in_party_params.map do |id, param|
       my_poke = MyPoke.find(id)
@@ -18,9 +12,6 @@ class PartiesController < ApplicationController
     end
 
     redirect_to controller: :parties, action: :index
-  end
-
-  def edit
   end
 
   def create_poke
