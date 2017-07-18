@@ -25,6 +25,9 @@ $ bundle exec rake db:create
 $ bundle exec rake db:migrate
 ```
 
+3. `app/assets/images/` にpng形式でポケモンのアイコンファイルを配置してください．
+ファイル名は`db/fixtures/poke_data.json` の `dex` 属性と一致させてください．
+
 ## Usage
 以下のコマンドによりrailsを実行します．
 ```
