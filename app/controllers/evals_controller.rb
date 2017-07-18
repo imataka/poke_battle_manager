@@ -12,9 +12,6 @@ class EvalsController < ApplicationController
     @battle_my_pokes = @my_pokes.map { |m| m.battle_my_pokes.find_by(battle_id: @battle.id) }
     @battle_opp_pokes = @opp_pokes.map { |o| o.battle_opp_pokes.find_by(battle_id: @battle.id) }
     @choices = (-3..3).to_a.reverse.map {|i| [i, i] } # [[3, 3], [2, 2], ..., [-3, -3]]
-    (@battle.my_pokes.count * @battle.opp_pokes.count).times do
-      @battle.evals.build.save
-    end
   end
 
   def create
