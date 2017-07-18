@@ -18,15 +18,18 @@
     <%= render "new", my_poke: @new_my_poke %>
   </div>
 
-  <div class="col-xs-4" id="choice">
+  <div class="col-xs-4">
     <h2>パーティを選ぶ</h2>
     <div class="row">
       <h4 class="col-xs-12">パーティに入れるポケモンを選びましょう</h4>
     </div>
-    <%= form_tag '/parties', mathod: :patch do |f| %>
-      <% @my_pokes.each do |my_poke| %>
-        <%= render "choice", my_poke: my_poke %>
-      <% end %>
+    <%= form_tag '/parties' do |f| %>
+      <div id="choice">
+        <% @my_pokes.each do |my_poke| %>
+          <%= render "choice", my_poke: my_poke %>
+        <% end %>
+      </div>
+      <%= submit_tag "パーティを決める", class: "btn btn-default submit" %>
     <% end %>
   </div>
 </div>

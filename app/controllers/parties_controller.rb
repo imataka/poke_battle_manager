@@ -11,6 +11,13 @@ class PartiesController < ApplicationController
   end
 
   def update
+    in_party_params.map do |id, param|
+      my_poke = MyPoke.find(id)
+      my_poke.update(param)
+      my_poke.save
+    end
+
+    redirect_to controller: :parties, action: :index
   end
 
   def edit
@@ -51,5 +58,9 @@ class PartiesController < ApplicationController
 
   def my_poke_params
     params.require(:my_poke).permit(:name, :item, :ability)
+  end
+
+  def in_party_params
+    params.permit(my_pokes: [:in_party])[:my_pokes]
   end
 end
