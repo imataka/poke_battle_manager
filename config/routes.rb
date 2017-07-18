@@ -4,6 +4,13 @@ Rails.application.routes.draw do
   resource :evals
   get 'stats/show' => 'stats#show'
   get '/poke_name_autocomp' => 'pokes#name_autocomp'
+  get 'parties' => 'parties#index'
+  post 'parties/create_poke/' => 'parties#create_poke'
+  post 'parties/update_poke/:id' => 'parties#update_poke'
+  patch 'parties/update_poke/:id' => 'parties#update_poke'
+  delete 'parties/destroy_poke/:id' => 'parties#destroy_poke'
+  post 'parties/' => 'parties#update'
+  patch 'parties/' => 'parties#update'
 
 
   # The priority is based upon order of creation: first created -> highest priority.
