@@ -10,4 +10,8 @@ class PokeData < ActiveJSON::Base
   def self.imgpath_from_name(name)
     "#{self.find_by(name: name).dex}.png"
   end
+
+  def self.all_names
+    self.all.map { |i| i.name }
+  end
 end

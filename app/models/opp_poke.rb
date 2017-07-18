@@ -5,6 +5,8 @@ class OppPoke < ActiveRecord::Base
 
   accepts_nested_attributes_for :battle_opp_pokes, allow_destroy: true
 
+  validates :name, inclusion: { in: PokeData.all_names }
+
   class << self
     # Returns Array of id of objects whose name corresponds to argument
     def ids_by_name(name)
