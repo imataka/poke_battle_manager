@@ -22,6 +22,18 @@ class BattlesController < ApplicationController
   def create
     battle = Battle.new(battle_params)
     battle.save
+
+    # ここでevalを作っておくことでeval#newでブラウザバックされても変なことにならない
+    battle.my_pokes.each do |m|
+      battle.opp_pokes.each do |o|
+        e = battle.evals.build
+        e.my_poke_id = m.id
+        e.opp_poke_id = o.id
+        e.eval = 0
+        e.save
+      end
+    end
+
     session[:battle_id] = battle.id
     redirect_to controller: :evals, action: :new
   end
