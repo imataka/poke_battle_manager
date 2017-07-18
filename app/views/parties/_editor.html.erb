@@ -19,7 +19,7 @@
   <div class="row form-inline editor">
     <%= form_for my_poke, :url => {controller: :parties, action: :update_poke, id: my_poke.id}, remote: true do |f| %>
       <div class="col-xs-3 scrollable-dropdown-menu">
-        <%= f.text_field :name, class: "form-control poke_name" %>
+        <%= f.text_field :name, class: "form-control poke_name poke_name_typeahead" %>
       </div>
       <div class="col-xs-3">
         <%= f.text_field :item, class: "form-control poke_item" %>
