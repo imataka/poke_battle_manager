@@ -17,7 +17,7 @@ var pokenames = new Bloodhound({
 pokenames.initialize();
 
 jQuery( document ).ready(function( $ ) {
-  $('.poke_name').typeahead(
+  $('.poke_name_typeahead').typeahead(
     { // #poke_nameは後ほどViewファイルのフォーム部分に付与するid属性名
       hint: true,
       highlight: true,
