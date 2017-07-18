@@ -26,7 +26,7 @@
       </tr>
       <% @my_pokes.each_with_index do |m, i| %>
         <tr>
-          <td> <%= m.name %> @ <%= m.item %> </td>
+          <td> <%= image_tag(PokeData.imgpath_from_name(m.name)) %> @ <%= m.item %> </td>
           <td> <%= comment(@battle, m) %> </td>
         </tr>
       <% end %>
@@ -41,7 +41,7 @@
       </tr>
       <% @opp_pokes.each_with_index do |o, i| %>
         <tr>
-          <td> <%= o.name %> @ <%= o.item %> </td>
+          <td> <%= image_tag(PokeData.imgpath_from_name(o.name)) %> @ <%= o.item %> </td>
           <td> <%= comment(@battle, o) %> </td>
         </tr>
       <% end %>
@@ -58,14 +58,14 @@
         </th>
         <% @opp_pokes.each do |o| %>
           <th>
-            <%= o.name %>
+            <%= image_tag PokeData.imgpath_from_name(o.name) %>
           </th>
         <% end %>
       </tr>
       <% @my_pokes.each do |m| %>
         <tr>
           <th>
-            <%= m.name %>
+            <%= image_tag PokeData.imgpath_from_name(m.name) %>
           </th>
           <% @opp_pokes.each do |o| %>
             <td>

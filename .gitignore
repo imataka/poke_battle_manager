@@ -28,5 +28,6 @@ doc/
 .secret
 /tmp
 
-# exclude files for copyrights
+# Ignore image files
 mockup/fig/*
+app/assets/images/*
