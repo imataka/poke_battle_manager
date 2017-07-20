@@ -20,22 +20,26 @@ class BattlesController < ApplicationController
   end
 
   def create
-    battle = Battle.new(battle_params)
-    battle.save
-
-    # ここでevalを作っておくことでeval#newでブラウザバックされても変なことにならない
-    battle.my_pokes.each do |m|
-      battle.opp_pokes.each do |o|
-        e = battle.evals.build
-        e.my_poke_id = m.id
-        e.opp_poke_id = o.id
-        e.eval = 0
-        e.save
+    @battle = Battle.new(battle_params)
+    if @battle.save
+      # ここでevalを作っておくことでeval#newでブラウザバックされても変なことにならない
+      @battle.my_pokes.each do |m|
+        @battle.opp_pokes.each do |o|
+          e = @battle.evals.build
+          e.my_poke_id = m.id
+          e.opp_poke_id = o.id
+          e.eval = 0
+          e.save
+        end
       end
-    end
 
-    session[:battle_id] = battle.id
-    redirect_to controller: :evals, action: :new
+      session[:battle_id] = @battle.id
+      redirect_to controller: :evals, action: :new
+    else 
+      # TODO: こうするのよくないみたいだしDRYじゃないのでどうにかしたい
+      @my_pokes = MyPoke.party
+      render 'new'
+    end
   end
 
   private
