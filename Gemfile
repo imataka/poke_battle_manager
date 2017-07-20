@@ -52,6 +52,7 @@ end
 ### add by ry_2718
 gem 'active_hash'
 gem 'active_hash-like'
+gem 'jquery-turbolinks'
 
 group :test do
   gem 'minitest-reporters', '1.0.5'
