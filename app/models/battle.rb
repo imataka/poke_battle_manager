@@ -11,12 +11,28 @@ class Battle < ActiveRecord::Base
 
   validates :my_rate, presence: true
   validates :opp_rate, presence: true
+  validate :my_poke_should_be_unique, :opp_poke_name_should_be_unique
+
   # helperでやったほうがいいのかもしれない
   def result_ja
     if result == true then
       "勝ち"
     else
       "負け"
+    end
+  end
+
+  def my_poke_should_be_unique
+    my_poke_ids = battle_my_pokes.map { |i| i.my_poke_id }
+    if my_poke_ids.size != my_poke_ids.uniq.size then
+      errors.add(:my_pokes, "同じポケモンを登録することはできません")
+    end
+  end
+
+  def opp_poke_name_should_be_unique
+    opp_poke_names = opp_pokes.map { |i| i.name }
+    if opp_poke_names.size != opp_poke_names.uniq.size then
+      errors.add(:opp_pokes, "同じポケモンを登録することはできません")
     end
   end
 end

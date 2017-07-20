@@ -6,6 +6,8 @@ class BattleTest < ActiveSupport::TestCase
     3.times do |i|
       @battle.my_pokes.build(id: i, name: PokeData.find(i).name)
       @battle.opp_pokes.build(id: i, name: PokeData.find(i).name)
+      @battle.battle_my_pokes.build(my_poke_id: i)
+      @battle.battle_opp_pokes.build(opp_poke_id: i)
     end
   end
 
@@ -23,13 +25,13 @@ class BattleTest < ActiveSupport::TestCase
     assert_not @battle.valid?
   end
 
-  test "battle.opp_poke should be unique" do
-    @battle.opp_pokes[0].name = @battle.opp_pokes[1].name
+  test "battle.my_poke should be unique" do
+    @battle.battle_my_pokes[0].my_poke_id = @battle.battle_my_pokes[1].my_poke_id
     assert_not @battle.valid?
   end
 
-  test "battle.battle_my_pokes.my_poke_id should be unique" do
-    @battle.my_pokes[0] = @battle.battle_my_pokes[1]
+  test "battle.opp_poke's should be unique" do
+    @battle.opp_pokes[0].name = @battle.opp_pokes[1].name
     assert_not @battle.valid?
   end
 end
