@@ -1,6 +1,7 @@
 class Battle < ActiveRecord::Base
   has_many :battle_my_pokes, dependent: :destroy
-  has_many :my_pokes, :through => :battle_my_pokes
+  has_many :my_pokes, -> { order "battle_my_pokes.id ASC" },
+    :through => :battle_my_pokes
   has_many :battle_opp_pokes, dependent: :destroy
   has_many :opp_pokes, :through => :battle_opp_pokes
   has_many :evals, dependent: :destroy
