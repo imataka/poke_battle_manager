@@ -30,7 +30,7 @@ class BattleTest < ActiveSupport::TestCase
     assert_not @battle.valid?
   end
 
-  test "battle.opp_poke's should be unique" do
+  test "battle.opp_poke's name should be unique" do
     @battle.opp_pokes[0].name = @battle.opp_pokes[1].name
     assert_not @battle.valid?
   end
