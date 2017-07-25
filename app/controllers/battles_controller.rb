@@ -21,6 +21,7 @@ class BattlesController < ApplicationController
 
   def create
     @battle = Battle.new(battle_params)
+    @battle.destroy_opp_poke_with_space
     if @battle.save
       # ここでevalを作っておくことでeval#newでブラウザバックされても変なことにならない
       @battle.my_pokes.each do |m|

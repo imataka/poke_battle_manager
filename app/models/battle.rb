@@ -23,6 +23,13 @@ class Battle < ActiveRecord::Base
     end
   end
 
+  def destroy_opp_poke_with_space
+    opp_pokes.each do |i|
+      i.destroy if i.name == ""
+    end
+  end
+
+  # validations
   def my_poke_should_be_unique
     my_poke_ids = battle_my_pokes.map { |i| i.my_poke_id }
     if my_poke_ids.size != my_poke_ids.uniq.size then
