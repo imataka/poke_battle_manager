@@ -1,7 +1,7 @@
 <h1>評価を入力する！</h1>
 <%= form_tag '/evals', method: :post do |b| %>
   <div class="row">
-    <div class="col-xs-12">
+    <div class="col-md-12">
       <table class="table table-hover">
         <tr>
           <th>
@@ -32,10 +32,10 @@
     </div>
   </div>
   <div class="row">
-    <div class="col-xs-12">
+    <div class="col-md-12">
       <h2>コメント</h2>
     </div>
-    <div class="col-xs-6">
+    <div class="col-md-6">
       <% @my_pokes.each_with_index do |m, i| %>
         <%= fields_for "battle_my_pokes[]", @battle_my_pokes[i] do |bm| %>
           <div class="form-group">
@@ -45,7 +45,7 @@
         <% end %>
       <% end %>
     </div>
-    <div class="col-xs-6">
+    <div class="col-md-6">
       <% @opp_pokes.each_with_index do |o, i| %>
         <%= fields_for "battle_opp_pokes[]", @battle_opp_pokes[i] do |om| %>
           <div class="form-group">
@@ -57,7 +57,7 @@
     </div>
   </div>
   <div class="row">
-    <div class="col-xs-12">
+    <div class="col-md-12">
       <%= submit_tag "評価を確定する", class: "btn btn-default" %>
     </div>
   </div>
