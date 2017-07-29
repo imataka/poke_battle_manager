@@ -5,6 +5,11 @@ class MyPoke < ActiveRecord::Base
 
   validates :name, inclusion: { in: PokeData.all_names }
 
+  def average(ndigits)
+    ave = evals.average(:eval) || 0
+    return ave.round(ndigits).to_f
+  end
+
   # パーティから外れているポケモンも管理するとき用に
   # パーティに入っているかを管理するフラグを用意してtrueなポケモンのみ返す
   def self.party

@@ -4,7 +4,9 @@
       <tr>
         <th></th>
         <% @my_pokes.each do |my_poke| %>
-          <th><%= image_tag(PokeData.imgpath_from_name(my_poke.name)) %></th>
+          <th><%= image_tag(PokeData.imgpath_from_name(my_poke.name)) %><br>
+            <%= my_poke.average(3) %>
+          </th>
         <% end %>
       </tr>
       <% @opp_names.each do |opp_name| %>
