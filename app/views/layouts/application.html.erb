@@ -28,7 +28,14 @@
         <li><%= link_to "パーティ管理", parties_path %></li>
         <li><%= link_to "バトル", battles_path %></li>
         <li><%= link_to "統計", stats_show_path %></li>
-        <li><%= link_to "新規トレーナー登録", new_user_session_path %></li>
+        <%if user_signed_in? %>
+        <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
+
+        <% elsif %>
+        <li><%= link_to "ログイン", new_user_session_path %></li>
+        <li><%= link_to "新規トレーナー登録", new_user_registration_path %></li>
+        
+        <% end %>
       </ul>
     </div><!--/.nav-collapse -->
   </div><!--/.container-fluid -->
