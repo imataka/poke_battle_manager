@@ -13,7 +13,7 @@
     <div class="col-md-4">
       <h3>自分のポケモン</h3>
       <%= f.fields_for :battle_my_pokes do |ff| %>
-        <%= render 'my_poke_form', ff: ff %>
+        <%= render 'my_poke_form', ff: ff, my_pokes: @my_pokes %>
       <% end %>
     </div>
     <div class="col-md-8 form-inline">
