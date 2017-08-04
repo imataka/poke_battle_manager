@@ -12,7 +12,7 @@
       <% @opp_names.each do |opp_name| %>
         <tr>
           <th class="centered"><%= image_tag(PokeData.imgpath_from_name(opp_name[0])) %><br>
-            <%= opp_name[1] %>回
+            <%= opp_name[1] %>回，<%= Eval.average_for_poke(@my_pokes.map(&:id), OppPoke.ids_by_name(opp_name), 3) %>
           </th>
           <% @my_pokes.each do |my_poke| %>
             <td class="centered"><%= Eval.average_for_poke(my_poke.id, OppPoke.ids_by_name(opp_name), 3) %></td>
