@@ -50,5 +50,13 @@ group :development do
 end
 
 ### add by ry_2718
-# bootstrap
-gem 'bootstrap_form'
+gem 'active_hash'
+gem 'active_hash-like'
+gem 'jquery-turbolinks'
+
+group :test do
+  gem 'minitest-reporters', '1.0.5'
+  gem 'mini_backtrace',     '0.1.3'
+  gem 'guard-minitest',     '2.3.1'
+end
+

@@ -1,0 +1,16 @@
+<div class="row form-inline submit">
+  <%= form_for my_poke, :url => {controller: :parties, action: :create_poke }, remote: true do |f| %>
+    <div class="col-md-3 scrollable-dropdown-menu">
+      <%= f.text_field :name, class: "form-control poke_name poke_name_typeahead" %>
+    </div>
+    <div class="col-md-3">
+      <%= f.text_field :item, class: "form-control poke_item" %>
+    </div>
+    <div class="col-md-3">
+      <%= f.text_field :ability, class: "form-control poke_ability" %>
+    </div>
+    <div class="col-md-3">
+      <%= f.submit "登録", class: "btn btn-default create" %>
+    </div>
+  <% end %>
+</div>

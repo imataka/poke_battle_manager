@@ -1,8 +1,22 @@
 Rails.application.routes.draw do
-  root 'battles#index'
+  get 'static_pages/home'
+
+  root 'static_pages#home'
+
   resources :battles
   resource :evals
+
   get 'stats/show' => 'stats#show'
+
+  get '/poke_name_autocomp' => 'pokes#name_autocomp'
+
+  get 'parties' => 'parties#index'
+  post 'parties/' => 'parties#update'
+  patch 'parties/' => 'parties#update'
+  post 'parties/create_poke/' => 'parties#create_poke'
+  post 'parties/update_poke/:id' => 'parties#update_poke'
+  patch 'parties/update_poke/:id' => 'parties#update_poke'
+  delete 'parties/destroy_poke/:id' => 'parties#destroy_poke'
 
 
   # The priority is based upon order of creation: first created -> highest priority.

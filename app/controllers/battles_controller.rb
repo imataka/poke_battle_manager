@@ -15,15 +15,30 @@ class BattlesController < ApplicationController
   def show
     @battle = Battle.find(params[:id])
     # Viewで複数回これを参照するためcontrollerでインスタンス変数として定義
-    @my_pokes = @battle.my_pokes
-    @opp_pokes = @battle.opp_pokes
   end
 
   def create
-    battle = Battle.new(battle_params)
-    battle.save
-    session[:battle_id] = battle.id
-    redirect_to controller: :evals, action: :new
+    @battle = Battle.new(battle_params)
+    @battle.destroy_opp_poke_with_space
+    if @battle.save
+      # ここでevalを作っておくことでeval#newでブラウザバックされても変なことにならない
+      @battle.my_pokes.each do |m|
+        @battle.opp_pokes.each do |o|
+          e = @battle.evals.build
+          e.my_poke_id = m.id
+          e.opp_poke_id = o.id
+          e.eval = 0
+          e.save
+        end
+      end
+
+      session[:battle_id] = @battle.id
+      redirect_to controller: :evals, action: :new
+    else 
+      # TODO: こうするのよくないみたいだしDRYじゃないのでどうにかしたい
+      @my_pokes = MyPoke.party
+      render 'new'
+    end
   end
 
   private

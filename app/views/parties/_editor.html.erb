@@ -1,0 +1,36 @@
+<div class="my_poke" id="<%= my_poke.id %>_my_poke">
+  <div class="row viewer row-eq-height">
+    <div class="col-md-3 middle poke_name">
+      <%= my_poke.name %>
+    </div>
+    <div class="col-md-3 middle poke_item">
+      <%= my_poke.item %>
+    </div>
+    <div class="col-md-3 middle poke_ability">
+      <%= my_poke.ability %>
+    </div>
+    <div class="col-md-3 form-inline">
+      <%= form_for my_poke, :url => {controller: :parties, action: :destroy_poke, id: my_poke.id}, method: :delete, html: {id: nil, class: "delete_my_poke" }, remote: true do |f| %>
+        <%= button_tag "編集", class: "btn btn-default edit", type: :button %>
+        <%= f.submit "削除", class: "btn btn-default destroy" %>
+      <% end %>
+    </div>
+  </div>
+  <div class="row form-inline editor">
+    <%= form_for my_poke, :url => {controller: :parties, action: :update_poke, id: my_poke.id}, remote: true do |f| %>
+      <div class="col-md-3 scrollable-dropdown-menu">
+        <%= f.text_field :name, class: "form-control poke_name poke_name_typeahead" %>
+      </div>
+      <div class="col-md-3">
+        <%= f.text_field :item, class: "form-control poke_item" %>
+      </div>
+      <div class="col-md-3">
+        <%= f.text_field :ability, class: "form-control poke_ability" %>
+      </div>
+      <div class="col-md-3">
+        <%= f.submit "更新", class: "btn btn-default update" %>
+        <%= button_tag "キャンセル", class: "btn btn-default cancel", type: :button %>
+      </div>
+    <% end %>
+  </div>
+</div>

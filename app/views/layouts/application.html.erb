@@ -19,13 +19,15 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="/">レートで114514目指す</a>
+
+      <%= link_to "レートで114514を目指す", root_path, class: "navbar-brand" %>
     </div>
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="#">Home</a></li>
-        <li><a href="#">About</a></li>
-        <li><a href="#">Contact</a></li>
+        <li><%= link_to "Home", root_path %></li>
+        <li><%= link_to "パーティ管理", parties_path %></li>
+        <li><%= link_to "バトル", battles_path %></li>
+        <li><%= link_to "統計", stats_show_path %></li>
       </ul>
     </div><!--/.nav-collapse -->
   </div><!--/.container-fluid -->

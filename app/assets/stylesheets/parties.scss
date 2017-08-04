@@ -1,3 +1,22 @@
 // Place all the styles related to the parties controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.my_poke .editor {
+    display: none;
+}
+.row-eq-height {
+    display: flex;
+    flex-wrap: wrap;
+}
+.middle {
+    display:flex;
+    -webkit-align-items: center;
+    align-items: center; /*上下中央*/
+}
+.row .submit {
+    margin-top: 20px;
+}
+.checkbox {
+    margin-top: 7px !important; //TODO importantを使わない
+    margin-bottom: 7px !important;
+}

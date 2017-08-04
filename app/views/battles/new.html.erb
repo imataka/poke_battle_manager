@@ -1,20 +1,22 @@
+<%= javascript_include_tag "typeahead.bundle.min" %>
+<%= javascript_include_tag "autocomp" %>
 <h2>基本情報</h2>
 <%= form_for @battle do |f| %>
   <div class="row">
-    <div class="col-xs-12 form-inline">
+    <div class="col-md-12 form-inline">
       <%= render 'fund_form', f: f %>
     </div>
   </div>
 
   <h2>選出</h2>
   <div class="row">
-    <div class="col-xs-4">
+    <div class="col-md-4">
       <h3>自分のポケモン</h3>
       <%= f.fields_for :battle_my_pokes do |ff| %>
-        <%= render 'my_poke_form', ff: ff %>
+        <%= render 'my_poke_form', ff: ff, my_pokes: @my_pokes %>
       <% end %>
     </div>
-    <div class="col-xs-8 form-inline">
+    <div class="col-md-8 form-inline">
       <h3>相手のポケモン</h3>
       <div class="row">
         <%= f.fields_for :opp_pokes do |ff| %>
@@ -22,7 +24,7 @@
         <% end %>
       </div>
     </div>
-    <div class="col-xs-12">
+    <div class="col-md-12">
       <%= f.submit "評価に進む", class: "btn btn-default" %>
     </div>
   </div>
