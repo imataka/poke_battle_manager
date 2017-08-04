@@ -6,18 +6,18 @@
         <tr>
           <th>
           </th>
-          <% @opp_pokes.each do |o| %>
+          <% @battle.opp_pokes.each do |o| %>
             <th>
               <%= image_tag PokeData.imgpath_from_name(o.name) %>
             </th>
           <% end %>
         </tr>
-        <% @my_pokes.each_with_index do |m, i| %>
+        <% @battle.my_pokes.each_with_index do |m, i| %>
           <tr>
             <th>
               <%= image_tag PokeData.imgpath_from_name(m.name) %>
             </th>
-            <% @opp_pokes.each_with_index do |o, j| %>
+            <% @battle.opp_pokes.each_with_index do |o, j| %>
               <%= fields_for "evals[]", @battle.evals[i * 3 + j] do |e| %>
                 <td>
                   <%= e.hidden_field :my_poke_id, value: m.id %>
@@ -36,7 +36,7 @@
       <h2>コメント</h2>
     </div>
     <div class="col-md-6">
-      <% @my_pokes.each_with_index do |m, i| %>
+      <% @battle.my_pokes.each_with_index do |m, i| %>
         <%= fields_for "battle_my_pokes[]", @battle_my_pokes[i] do |bm| %>
           <div class="form-group">
             <%= bm.label :comment, image_tag(PokeData.imgpath_from_name(m.name)), {class: "control-label"} %>
@@ -46,7 +46,7 @@
       <% end %>
     </div>
     <div class="col-md-6">
-      <% @opp_pokes.each_with_index do |o, i| %>
+      <% @battle.opp_pokes.each_with_index do |o, i| %>
         <%= fields_for "battle_opp_pokes[]", @battle_opp_pokes[i] do |om| %>
           <div class="form-group">
             <%= om.label :comment, image_tag(PokeData.imgpath_from_name(o.name)), {class: "control-label"} %>

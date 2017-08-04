@@ -24,7 +24,7 @@
         <th>ポケモン</th>
         <th>コメント</th>
       </tr>
-      <% @my_pokes.each_with_index do |m, i| %>
+      <% @battle.my_pokes.each_with_index do |m, i| %>
         <tr>
           <td> <%= image_tag(PokeData.imgpath_from_name(m.name)) %> @ <%= m.item %> </td>
           <td> <%= comment(@battle, m) %> </td>
@@ -39,7 +39,7 @@
         <th>ポケモン</th>
         <th>コメント</th>
       </tr>
-      <% @opp_pokes.each_with_index do |o, i| %>
+      <% @battle.opp_pokes.each_with_index do |o, i| %>
         <tr>
           <td> <%= image_tag(PokeData.imgpath_from_name(o.name)) %> @ <%= o.item %> </td>
           <td> <%= comment(@battle, o) %> </td>
@@ -56,18 +56,18 @@
       <tr>
         <th>
         </th>
-        <% @opp_pokes.each do |o| %>
+        <% @battle.opp_pokes.each do |o| %>
           <th>
             <%= image_tag PokeData.imgpath_from_name(o.name) %>
           </th>
         <% end %>
       </tr>
-      <% @my_pokes.each do |m| %>
+      <% @battle.my_pokes.each do |m| %>
         <tr>
           <th>
             <%= image_tag PokeData.imgpath_from_name(m.name) %>
           </th>
-          <% @opp_pokes.each do |o| %>
+          <% @battle.opp_pokes.each do |o| %>
             <td>
               <%= @battle.evals.find_by(my_poke_id: m.id, opp_poke_id: o.id).eval %>
             </td>

@@ -5,8 +5,6 @@ class EvalsController < ApplicationController
   def new
     @battle = Battle.find(session[:battle_id])
     # Viewで複数回これを参照するためcontrollerでインスタンス変数として定義
-    @my_pokes = @battle.my_pokes
-    @opp_pokes = @battle.opp_pokes
 
     # form_tag > field_for で参照するため定義したけどもっといい方法がありそうな……
     @battle_my_pokes = @my_pokes.map { |m| m.battle_my_pokes.find_by(battle_id: @battle.id) }
