@@ -15,8 +15,6 @@ class BattlesController < ApplicationController
   def show
     @battle = Battle.find(params[:id])
     # Viewで複数回これを参照するためcontrollerでインスタンス変数として定義
-    @my_pokes = @battle.my_pokes
-    @opp_pokes = @battle.opp_pokes
   end
 
   def create

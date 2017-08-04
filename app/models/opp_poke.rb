@@ -16,7 +16,7 @@ class OppPoke < ActiveRecord::Base
 
     # Returns Array of name sorted by count
     def sorted_name
-      self.group(:name).count(:name).sort_by{ |_, v| -v }.to_h.keys
+      self.group(:name).count(:name).sort_by{ |_, v| -v }
     end
   end
 end

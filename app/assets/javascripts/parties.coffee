@@ -43,6 +43,7 @@ $ ->
       # フォームを初期化
       $(this).find('.poke_ability')[0].value = ""
       $(this).find('.poke_item')[0].value = ""
+      $(this).find('.poke_name')[0].value = ""
       $(this).find('.poke_name')[1].value = ""
 
 # 表示モードと編集モードを切り替える。

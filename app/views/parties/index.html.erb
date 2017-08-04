@@ -2,13 +2,13 @@
 <%= javascript_include_tag "typeahead.bundle.min" %>
 <%= javascript_include_tag "autocomp" %>
 <div class="row">
-  <div class="col-xs-8">
+  <div class="col-md-8">
     <h2>ポケモンを登録する</h2>
     <div class="row">
-      <div class="col-xs-3"><h4>名前</h4></div>
-      <div class="col-xs-3"><h4>持ち物</h4></div>
-      <div class="col-xs-3"><h4>特性</h4></div>
-      <div class="col-xs-3"></div>
+      <div class="col-md-3"><h4>名前</h4></div>
+      <div class="col-md-3"><h4>持ち物</h4></div>
+      <div class="col-md-3"><h4>特性</h4></div>
+      <div class="col-md-3"></div>
     </div>
     <div id="my_pokes">
       <% @my_pokes.each do |my_poke| %>
@@ -18,10 +18,10 @@
     <%= render "new", my_poke: @new_my_poke %>
   </div>
 
-  <div class="col-xs-4">
+  <div class="col-md-4">
     <h2>パーティを選ぶ</h2>
     <div class="row">
-      <h4 class="col-xs-12">パーティに入れるポケモンを選びましょう</h4>
+      <h4 class="col-md-12">パーティに入れるポケモンを選びましょう</h4>
     </div>
     <%= form_tag '/parties' do |f| %>
       <div id="choice">
