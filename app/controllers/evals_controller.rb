@@ -45,7 +45,7 @@ class EvalsController < ApplicationController
   end
 
   def edit
-    
+
   end
 
   private
